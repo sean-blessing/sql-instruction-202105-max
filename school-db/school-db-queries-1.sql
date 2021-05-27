@@ -26,3 +26,19 @@ select middleinitial, count(middleinitial) from student
  group by middleInitial
  order by count(middleinitial) desc
  limit 1;
+
+-- student - course enrollment
+select lastname, firstname, courseid, grade, subject, name
+  from student s
+  join enrolled
+    on studentid = s.id
+  join course c
+    on courseid = c.id
+ order by grade, lastname;
+  
+  
+  
+  
+  
+  
+  
