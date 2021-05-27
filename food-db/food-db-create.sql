@@ -52,29 +52,16 @@ Foreign Key (MenuItemID) references MenuItem(ID),
 CONSTRAINT ord_menu unique (OrderTicketID, MenuItemID)
 );
 
--- -- Add some movies
---  insert into Movie VALUES
---  	(1, 'Revenge of the Nerds', 1984, 'R', 'Jeff Kanew'),
---  	(2, 'Avengers Infinity War', 2018, 'PG-13', 'Anthony Russo, John Russo');
---     
--- -- Add some actors
---  insert into Actor VALUES
---  	(1, 'Robert', 'Downey Jr.', 'M', '1965-4-4'),
---  	(2, 'Chris', 'Hemsworth', 'M', '1983-09-11'),
---     (3, 'Scarlett', 'Johansson', 'F', '1984-11-22'),
---  	(4, 'Robert', 'Carradine', 'M', '1954-3-24'),
---  	(5, 'Anthony', 'Edwards', 'M', '1962-7-19');
---     
--- -- Add movie credits for actors
---  insert into Credit (ActorID, MovieID, Role) VALUES
---  	(1, 2, 'Tony Stark - Iron Man'),
---     (2, 2, 'Thor'),
---     (3, 2, 'Natasha Romanoff - Black Widow'),
---     (4, 1, 'Lewis'),
---     (5, 1, 'Gilbert');
+-- Add Categories
+ insert into Category (Name) VALUES
+ 	('Appetizers'),
+ 	('Salads'),
+    ('Entrees'),
+ 	('Sides'),
+ 	('Drinks'),
+ 	('Desserts');
 
-
--- -- create a user and grant privileges to that user
--- DROP USER IF EXISTS food_db_user@localhost;
--- CREATE USER food_db_user@localhost IDENTIFIED BY 'sesame';
--- GRANT SELECT, INSERT, DELETE, UPDATE ON food_db.* TO food_db_user@localhost;
+-- create a user and grant privileges to that user
+DROP USER IF EXISTS fooddb_user@localhost;
+CREATE USER fooddb_user@localhost IDENTIFIED BY 'sesame';
+GRANT SELECT, INSERT, DELETE, UPDATE ON food_db.* TO fooddb_user@localhost;
